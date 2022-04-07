@@ -74,9 +74,6 @@ html {
     font-family: Radwave;
     font-size: 38px;
 }
-.col-1 .signature {
-    min-height: 2vh;
-}
 .signature h4 {
     font-family: Kingsland;
     font-size: 28px;
@@ -245,14 +242,11 @@ svg {
     }
     .signature h4 {
         font-size: 20px;
-        margin: 12px;
+        margin: 6px;
         text-align: right;
     }
-    .col-1 h1 {
-        font-size: 2em;
-    }
-    .main-text {
-        height: 9vh;
+    .main-text h1 {
+        font-size: 1.2em;
     }
     .col-2 .borders span {
         margin-top: 8px;
@@ -261,7 +255,7 @@ svg {
         height: auto;
     }
     .contact-header {
-        height: 28vh;
+        height: auto;
     }
     .contact-header img {
         width: 42px;
