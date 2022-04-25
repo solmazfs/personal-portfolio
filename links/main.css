@@ -32,6 +32,13 @@ html {
     font-family: "Times New Roman", Times, serif;
 }
 
+a {
+    color:black;
+    text-decoration: none;
+}
+
+.links a:hover, .links a:hover > * { background-color:#000;color:#fff;text-decoration:none }
+
 /* Main section */
 
 .container {
@@ -68,12 +75,18 @@ html {
 
 .main-text {
     border-bottom: 4px solid black;
+    user-select:none;
 }
 .main-text h1 {
     margin: 12px;
     font-family: Radwave;
     font-size: 38px;
 }
+
+.signature {
+    user-select:none;
+}
+
 .signature h4 {
     font-family: Kingsland;
     font-size: 28px;
@@ -96,6 +109,7 @@ html {
     width: 100%;
     height: 36vh;
     border-bottom: 4px solid black;
+    user-select:none;
 }
 .contact-header h1 {
     font-size: 58px;
@@ -139,6 +153,13 @@ html {
     margin: 12px;
 }
 
+.s-center h4::before {
+    content: '\22B6';
+    margin-right:6px;
+    user-select:none;
+}
+
+
 .col-2 .social {
     overflow-y: auto;
 }
@@ -176,6 +197,7 @@ html {
     width: 100%;
     height: 34vh;
     border-bottom: 4px solid black;
+    user-select:none;
 }
 .info-header h1 {
     font-size: 38px;
@@ -198,6 +220,18 @@ html {
 .scroll::-webkit-scrollbar-thumb {
     background-color: black;
     border-radius: 10px;
+}
+
+.scroll h3::before {
+    content:'\27A5';
+    margin-right:6px;
+    user-select:none;
+}
+
+.scroll h4::before {
+    content:'~';
+    margin-right:6px;
+    user-select:none;
 }
 
 /* Cursor */
@@ -259,6 +293,7 @@ svg {
     }
     .contact-header img {
         width: 42px;
+        user-select:none;
     }
     .social {
         height: auto;
