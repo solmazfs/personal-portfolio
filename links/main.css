@@ -1,9 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
-
-/* Head font */
+/* Radwave, from: https://indieground.net/product/radwave-font/ */
 @font-face {
     font-family: Radwave;
     src: url(RadwaveFont-Demo.otf)
+}
+
+/* Mak, from: https://www.behance.net/gallery/89569065/MAK-Cyrillic-Latin-free-font */
+@font-face {
+  font-family: Mak;
+  src: url(Mak.ttf);
 }
 
 /* Sign Rathi, from: https://www.behance.net/dwiahidian, by Lemonthe . @dwiahidian*/
@@ -184,7 +188,8 @@ a {
     width: 100%;
     height: 12vh;
     margin: 12px;
-    font-family: 'Nanum Gothic Coding', monospace;
+    font-family: Mak;
+    text-transform:lowercase;
 }
 
 .col-3 {
