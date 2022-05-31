@@ -1,0 +1,466 @@
+/* Mak, from: https://www.behance.net/gallery/89569065/MAK-Cyrillic-Latin-free-font */
+@font-face {
+    font-family: Mak;
+    src: url(MAK.otf);
+}
+
+/* Sign Rathi, from: https://www.behance.net/dwiahidian, by Lemonthe . @dwiahidian*/
+@font-face {
+    font-family: SignRathi;
+    src: url(SignRathi.ttf);
+}
+
+:root {
+    --sl-pad: 1rem;
+    --sl-clr: magenta;
+    --txt-clr: black;
+    --txt-size: 1.75rem;
+    --info-title-font: SignRathi;
+    --info-about-font: Mak;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    line-height: 5.1vw;
+}
+
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+html * {
+    cursor: url(../media/cool_cursor.png)97 8, auto;
+}
+body{
+    margin: 2vw;
+}
+
+.noise--svg {display:none;}
+
+header h1 {
+    font-size:4vw;
+}
+header h2 {
+    font-size:3vw;
+}
+
+.content {
+    display:grid;
+}
+
+.lips {
+    float:right;
+    top: 6vmax;
+    right: 6vmax;
+    margin: 2vmax;
+    z-index: 99999;
+    background-image: url(../media/lips.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    user-select:none;
+}
+
+.circle {
+    pointer-events: auto;
+    cursor: pointer;
+    background: #e7e7e7;
+    border: none;
+    padding: 1.5rem 3rem;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    position: relative;
+    display: inline-block;
+    vertical-align:middle;
+}
+
+.circle::before { /*crt display, aleclownes */
+    content: " ";
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+.circle::before,
+.circle::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*button surtur*/
+.circle--surtur {
+    padding: 0;
+    background: none;
+    -webkit-clip-path: circle(40% at 50% 50%);
+    clip-path: circle(40% at 50% 50%);
+}
+
+.circle--surtur:focus-visible {
+    background: #443ffc;
+}
+
+.textcircle {
+    position: relative;
+    display: block;
+    width: 200px;
+}
+
+.textcircle text {
+    font-size: 2em;
+    text-transform: uppercase;
+    stroke: gold;
+    stroke-width: 8;
+}
+
+.textcircle textPath {
+    letter-spacing: 17px; /* Firefox needs this */
+}
+
+.circle--surtur .textcircle {
+    animation: rotateIt 7s linear infinite;
+}
+
+.circle--surtur:hover .textcircle {
+    animation: rotateItRev 7s linear infinite;
+}
+
+.eye {
+    position: absolute;
+    z-index: 2;
+    width: 60px;
+    height: 60px;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+}
+
+.eye__outer,
+.eye__inner,
+.eye__lashes-up,
+.eye__lashes-down {
+    stroke: red;
+    fill: none;
+    stroke-width: 2;
+}
+
+.eye__lashes-down {
+    opacity: 0;
+}
+
+.circle--surtur:hover .eye__lashes-up,
+.circle--surtur:hover .eye__inner,
+.circle--surtur:hover .eye__iris {
+    animation: blinkHide 2s step-end infinite;
+}
+
+.circle--surtur:hover .eye__lashes-down {
+    animation: blinkShow 2s step-end infinite;
+}
+
+@keyframes blinkHide {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+}
+
+@keyframes blinkShow {
+    0% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+    }
+}
+@keyframes rotateItRev {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+@keyframes rotateIt {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/*menu items*/
+
+.content__menu {
+    display:grid;
+    justify-content:start;
+    user-select:none;
+}
+
+/*snake lines*/
+.side-lines--snake {
+    display:flex;
+    align-items:center;
+    width: 100%;
+}
+.side-lines--snake:after {
+    border-top-right-radius:20px;
+    border-bottom-right-radius:20px;
+    content: "";
+    flex: 1;
+    width: 10vmax;
+    height: 28px;
+    -webkit-animation: move 0.5s linear infinite forwards;
+    animation: move 0.5s linear infinite forwards;
+    background: radial-gradient(circle at 100% 100%, transparent 30%, var(--sl-clr) 30%, var(--sl-clr) 45%, transparent 45%, transparent), radial-gradient(circle at 0 0, transparent 25%, var(--sl-clr) 25%, var(--sl-clr) 40%, transparent 40%, transparent);
+    background-size: 18px 18px;
+}
+@-webkit-keyframes move {
+    to {
+        background-position: 18px 18px;
+    }
+}
+@keyframes move {
+    to {
+        background-position: 18px 18px;
+    }
+}
+.side-lines--snake:before {
+    margin-right: var(--sl-pad);
+}
+.side-lines--snake:after {
+    margin-left: var(--sl-pad);
+}
+
+.menu__item {
+    counter-increment: itemcounter;
+}
+
+.menu__item::before {
+    font-size:8vmax;
+    margin:6px;
+    content: counters(itemcounter, ".", decimal-leading-zero);
+    background-image:url(../media/noise.png); /* tood */
+    border-radius: 50%;
+    background-size:cover;
+}
+
+.menu__item--gradient {
+    font-size:3vmax;
+    text-transform:capitalize;
+    font-weight:900;
+    padding:1vw;
+    border-radius: 1em;
+    background: linear-gradient(to bottom, yellow, transparent);
+    filter: contrast(170%) brightness(1000%);
+}
+
+.menu__item--border {
+    margin:0;
+    padding:0;
+    border: 1px solid black;
+}
+
+.menu__item--stroke {
+    font-size: 3vmax;
+    line-height: 4vmax;
+    font-weight: 600;
+    -webkit-text-fill-color: lightyellow;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: blue;
+    transform-origin:50% 50%;
+    transform: rotate(5deg);
+    z-index:10;
+}
+
+
+.imgwrap {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    pointer-events: none;
+    z-index: 88;
+}
+
+.imgwrap .wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: calc(100vh - 1.25vw);
+    max-height: calc(100vh - 1vw);
+    opacity: 0;
+}
+
+.wrap {
+    /*background: linear-gradient(275deg, #ffffff 0%, rgb(255 255 255 / 0%) 100%), linear-gradient(219.46deg, #dafdff 27.63%, #ffffff 100%), radial-gradient(100% 246.94% at 100% 100%, #ffffff 0%, #000353ab 100%), linear-gradient(158deg, #f5f5f5 8.44%, #12bdbd 84.19%), linear-gradient(27deg, #CF0C00 12.99%, #00574d 87.21%), linear-gradient(55deg, #3134528c 15.35%, #080f4eb8 89.57%), url(https://grainy-gradients.vercel.app/noise.svg);*/
+    background-image: linear-gradient(275deg, #ffffff 0%, rgb(255 255 255 / 20%) 100%), linear-gradient(219.46deg, #dafdff 27.63%, #ffffff 100%), radial-gradient(100% 246.94% at 100% 100%, #ffffff 0%, #941bdf 100%), linear-gradient(115deg, #f5f5f5 8.44%, #12a5bd80 84.19%), linear-gradient(27deg, #CF0C00 12.99%, #00574d 87.21%), linear-gradient(55deg, #3134528c 15.35%, #080f4eb8 89.57%);
+    background-blend-mode: overlay, overlay, overlay, difference, difference, normal;
+    box-shadow: blue 0px 0px 0px 3px inset,
+    rgb(255, 255, 255) 10px -10px 0px -3px,
+    rgb(31, 193, 27) 10px -10px,
+    rgb(255, 255, 255) 20px -20px 0px -3px,
+    rgb(255, 217, 19) 20px -20px,
+    rgb(255, 255, 255) 30px -30px 0px -3px,
+    rgb(255, 156, 85) 30px -30px,
+    rgb(255, 255, 255) 40px -40px 0px -3px,
+    rgb(255, 85, 85) 40px -40px;
+}
+.wrap::before {
+    content:'';
+    width:100%;
+    height:100%;
+    position:absolute;
+    filter: url(#a);
+    mix-blend-mode:lighten;
+
+}
+
+.imgwrap .wrap img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    padding:2vmax;
+    max-width: calc(100vh - 1.25vw);
+    max-height: calc(100vh - 8vmax);
+    }
+
+.title {
+    left: 0.5vw;
+    bottom: 0.5vw;
+    position: absolute;
+    width: calc(100% - 1vw);
+    font-size: 1vmax;
+    font-weight:900;
+    text-align:center;
+    line-height: 1.75vw;
+    background: linear-gradient(to right, darkmagenta, black, magenta);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    z-index: 99999999;
+}
+
+/*info*/
+.info :nth-child(1) {
+    font-weight:normal;
+    font-size:6vmax;
+    font-family:var(--info-title-font);
+    text-transform:capitalize;
+}
+.info :nth-child(2) {
+    background-image: url(../media/85.jpg);
+    background-size:cover;
+    background-position:center;
+    border-radius: 3vw;
+    padding:1vmax;
+    font-family: var(--info-about-font);
+    font-size:2vmax;
+    white-space:nowrap;
+    color:white;
+}
+.info :nth-child(3) {
+    background: linear-gradient(90deg, #FF0000 0%, #FFFF00 16.67%, #00FF00 33.34%, #00FFFF 50%, #0000FF 66.67%, #FF00FF 83.34%, #FF0000 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+/*contact*/
+.contact  span {
+    padding:.3vmax;
+    color:white;
+    font-weight:normal;
+    white-space:nowrap;
+    border-radius: 1vw;
+    background-image:linear-gradient(to right, magenta 0%, darkturquoise 74%);
+}
+
+
+.content__menu span:hover {
+    cursor: url(../media/dice.svg)20 0, auto;
+}
+
+
+#topic33:active ~ .imgwrap #img33 {
+    opacity:1;
+}
+#topic34:active ~ .imgwrap #img34 {
+    opacity:1;
+}
+#topic35:active ~ .imgwrap #img35 {
+    opacity:1;
+}
+#topic36:active ~ .imgwrap #img36 {
+    opacity:1;
+}
+#topic37:active ~ .imgwrap #img37 {
+    opacity:1;
+}
+#topic38:active ~ .imgwrap #img38 {
+    opacity:1;
+}
+#topic39:active ~ .imgwrap #img39 {
+    opacity:1;
+}
+
+@media (max-width: 600px) {
+    .content::before {
+        content:'';
+        margin-top:3vmax;
+    }
+    .imgwrap .wrap, .imgwrap .wrap img {
+        max-width: calc(100vw - 4vw);
+        max-height: calc(100vh - 20vh);
+    }
+    .lips {
+        top: 3vmax;
+        right:3vmax;
+        background-size: 100%;
+    }
+    .textcircle {
+        width:100px;
+    }
+    .info {
+        line-height:5vmax;
+    }
+    .title {
+       bottom: 3vw;
+       font-size:1.4vmax;
+    }
+}
+
+@media (hover: hover) {
+    #topic33:hover ~ .imgwrap #img33 {
+        opacity:1;
+    }
+    #topic34:hover ~ .imgwrap #img34 {
+        opacity:1;
+    }
+    #topic35:hover ~ .imgwrap #img35 {
+        opacity:1;
+    }
+    #topic36:hover ~ .imgwrap #img36 {
+        opacity:1;
+    }
+    #topic37:hover ~ .imgwrap #img37 {
+        opacity:1;
+    }
+    #topic38:hover ~ .imgwrap #img38 {
+        opacity:1;
+    }
+    #topic39:hover ~ .imgwrap #img39 {
+        opacity:1;
+    }
+}
