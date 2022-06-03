@@ -392,7 +392,6 @@ header h2 {
     cursor: url(../media/dice.svg)20 0, auto;
 }
 
-
 #topic33:active ~ .imgwrap #img33 {
     opacity:1;
 }
@@ -412,6 +411,9 @@ header h2 {
     opacity:1;
 }
 #topic39:active ~ .imgwrap #img39 {
+    opacity:1;
+}
+#topic40:active ~ .imgwrap #img40 {
     opacity:1;
 }
 
@@ -461,6 +463,9 @@ header h2 {
         opacity:1;
     }
     #topic39:hover ~ .imgwrap #img39 {
+        opacity:1;
+    }
+    #topic40:hover ~ .imgwrap #img40 {
         opacity:1;
     }
 }
