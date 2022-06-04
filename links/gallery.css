@@ -335,7 +335,7 @@ header h2 {
     padding:2vmax;
     max-width: calc(100vh - 1.25vw);
     max-height: calc(100vh - 8vmax);
-    }
+}
 
 .title {
     left: 0.5vw;
@@ -416,6 +416,17 @@ header h2 {
 #topic40:active ~ .imgwrap #img40 {
     opacity:1;
 }
+/*slide 1*/
+#topic33:active ~ .imgwrap #img33 :nth-child(3) {
+    animation:slide 8s ease-in-out infinite;
+    animation-delay: 2s;
+}
+#topic33:active ~ .imgwrap #img33 :nth-child(2) {
+    animation:slide 8s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+
 
 @media (max-width: 600px) {
     .content::before {
@@ -438,8 +449,8 @@ header h2 {
         line-height:5vmax;
     }
     .title {
-       bottom: 3vw;
-       font-size:1.4vmax;
+        bottom: 3vw;
+        font-size:1.4vmax;
     }
 }
 
@@ -447,6 +458,16 @@ header h2 {
     #topic33:hover ~ .imgwrap #img33 {
         opacity:1;
     }
+    /*low poly slide*/
+    #topic33:hover ~ .imgwrap #img33 :nth-child(3) {
+        animation:slide 8s ease-in-out infinite;
+        animation-delay: 2s;
+    }
+    #topic33:hover ~ .imgwrap #img33 :nth-child(2) {
+        animation:slide 8s ease-in-out infinite;
+        animation-delay: 1s;
+    }
+
     #topic34:hover ~ .imgwrap #img34 {
         opacity:1;
     }
@@ -466,6 +487,18 @@ header h2 {
         opacity:1;
     }
     #topic40:hover ~ .imgwrap #img40 {
+        opacity:1;
+    }
+}
+
+@keyframes slide{
+    0%{
+        opacity:1;
+    }
+    50%{
+        opacity:0;
+    }
+    100%{
         opacity:1;
     }
 }
