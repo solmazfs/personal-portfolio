@@ -238,40 +238,71 @@ header h2 {
     background-image:linear-gradient(to right, magenta 0%, darkturquoise 74%);
 }
 
+.content > div {margin-top:2em;}
+
 /*snake lines*/
 .side-lines--snake {
-    display:flex;
-    align-items:center;
+    position:relative;
     width: 100%;
+    height:3vw;
+    background-image: repeating-linear-gradient(-45deg, rgba(255,255,255, 0.25), rgba(0,0,0, 1.0) 1px, transparent 1px, transparent 6px);
+    /*background: repeating-linear-gradient(-45deg, rgba(255,255,255, 0.25), black 1px, transparent 1px, transparent 6px);*/
+    background-size: 4px 4px;
+    border: 1px solid black;
+    box-shadow: 10px 10px black;
+    -webkit-animation: move 8.0s linear infinite forwards;
+    animation: move 8.0s linear infinite forwards;
 }
-.side-lines--snake:after {
-    content: "";
-    flex: 1;
-    height: 16px;
-    -webkit-animation: move 1.0s linear infinite forwards;
-    animation: move 1.0s linear infinite forwards;
-    background: conic-gradient(
-        #fff 0.25turn,
-        #000 0.25turn 0.5turn,
-        #fff 0.5turn 0.75turn,
-        #000 0.75turn) top left / 25% 25% repeat;
-    background-size: 18px 18px;
+
+.marquee * {
+    display: inline-block;
+    line-height:2.5;
 }
+
+.marquee {
+    --gap: 1rem;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: var(--gap);
+    will-change: transform;
+    height:3vw;
+}
+
+.marquee__content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: var(--gap);
+    min-width: 100%;
+    animation: scroll 20s linear infinite;
+}
+
+.marquee--fit-content {
+    /*top:-50px;*/
+    vertical-align:center;
+    max-width: fit-content;
+}
+
 @-webkit-keyframes move {
     to {
-        background-position: 18px 18px;
+        background-position: 0 18px;
     }
 }
 @keyframes move {
     to {
-        background-position: 18px 18px;
+        background-position: 0 18px;
     }
 }
-.side-lines--snake:before {
-    margin-right: var(--sl-pad);
-}
-.side-lines--snake:after {
-    margin-left: var(--sl-pad);
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100% - var(--gap)));
+    }
 }
 
 /*menu items*/
